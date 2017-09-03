@@ -23,9 +23,11 @@ public class BST {
         
         if (val < x.val) x.left = put(x.left, val);
         
-        if (val > x.val) x.right = put(x.right, val);
+        else if (val > x.val) x.right = put(x.right, val);
         
-        x.N = size(x.left) + size(x.right) + 1;
+        else x.val = val;
+        
+       // x.N = size(x.left) + size(x.right) + 1;
         return x;
     }
     
@@ -34,7 +36,7 @@ public class BST {
     }
     
     public boolean get (Node node, int val) {
-        System.out.println("get " + node);
+        //System.out.println("get " + node);
         if (node == null) return false;
         if (val == node.val) {
             return true;
@@ -90,9 +92,10 @@ public class BST {
         bst.setRoot(1);
         bst.put(4);
         bst.put(3);
-//        bst.put(2);
+        bst.put(2);
         
         System.out.println(bst.get(1));
         System.out.println(bst.get(4));
+        System.out.println(bst.get(5));
     }
 }
